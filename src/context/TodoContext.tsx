@@ -8,6 +8,7 @@ interface TodoContextType {
     addTodo: (text: string) => void;
     toggleTodo: (id: number) => void;
     deleteTodo: (id: number) => void;
+    clearCompleted: () => void;
 }
 
 
@@ -58,7 +59,7 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     //3. Function to deleteTodo , If the user clicks the Delete button for task ID 2., then that todo should be deleted
     function deleteTodo(id: number) {
 
-        const updatedTodos = todos.filter(singleTodo => singleTodo.id !== id)
+        const updatedTodos = todos.filter(singleTodo => singleTodo.id !== id);
         setTodos(updatedTodos);
     }
 
@@ -79,16 +80,23 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
         });
 
         setTodos(updatedTodos);
+    }
 
+    //5. Function to clearCompleted , If the user clicks the Clear Completed Button, clearCompleted function should deleted those tasks from the todo list   
+    
+    function clearCompleted(){
+    const updatedTodos = todos.filter(singleTodos => !singleTodos.completed);
+       
+        setTodos(updatedTodos);
+    }
 
+    
+            
         return (
             <TodoContext.Provider value={undefined}>
                 {children}
             </TodoContext.Provider>
         )
-
-
-
     }
 
     export default TodoContext;
