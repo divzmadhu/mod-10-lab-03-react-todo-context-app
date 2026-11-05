@@ -6,7 +6,8 @@ import type { Todo } from "../types";
 interface TodoContextType {
     todos: Todo[],
     addTodo: (text: string) => void;
-    toggleTodo: (id:number) => void;
+    toggleTodo: (id: number) => void;
+    deleteTodo: (id:number) => void;
 }
 
 
@@ -36,32 +37,40 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     }
 
     //2. Function to toggleTodo , If the user clicks the checkbox for any todo , say Read a book, we want: completed: true
-    function toggleTodo(id:number){
-        
-        const updatedTodos = todos.map(todo => {
+    function toggleTodo(id: number) {
 
-            if(todo.id === id)
-            {
+        const updatedTodos = todos.map(singleTodo => {
+
+            if (singleTodo.id === id) {
                 return {
-                    ...todo,
-                    completed: !todo.completed
+                    ...singleTodo,
+                    completed: !singleTodo.completed
                 };
             }
-            else
-            {
-                return todo;
+            else {
+                return singleTodo;
             }
         });
 
         setTodos(updatedTodos);
     }
+    
+    //3. Function to deleteTodo , If the user clicks the Delete button for task ID 2., then that todo should be deleted
+    function deleteTodo(id: number) {
+
+        const updatedTodos = todos.filter(singleTodo => singleTodo.id !== id)
+        setTodos(updatedTodos);
+    }
+
 
     return (
-        <TodoContext.Provider value={null}>
+        <TodoContext.Provider value={undefined}>
             {children}
         </TodoContext.Provider>
     )
 
+
+   
 }
 
 export default TodoContext;
