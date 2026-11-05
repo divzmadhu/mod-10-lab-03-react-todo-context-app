@@ -7,7 +7,7 @@ interface TodoContextType {
     todos: Todo[],
     addTodo: (text: string) => void;
     toggleTodo: (id: number) => void;
-    deleteTodo: (id:number) => void;
+    deleteTodo: (id: number) => void;
 }
 
 
@@ -54,7 +54,7 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
 
         setTodos(updatedTodos);
     }
-    
+
     //3. Function to deleteTodo , If the user clicks the Delete button for task ID 2., then that todo should be deleted
     function deleteTodo(id: number) {
 
@@ -62,16 +62,33 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
         setTodos(updatedTodos);
     }
 
+    //4. Function to editTodo , If the user clicks the Edit button for task ID 2., then that todo should be available for edit
+    function editTodo(id: number, newText: string) {
 
-    return (
-        <TodoContext.Provider value={undefined}>
-            {children}
-        </TodoContext.Provider>
-    )
+        const updatedTodos = todos.map(singleTodo => {
+
+            if (singleTodo.id === id) {
+                return {
+                    ...singleTodo,
+                    text: newText
+                };
+            }
+            else {
+                return singleTodo;
+            }
+        });
+
+        setTodos(updatedTodos);
 
 
-   
-}
+        return (
+            <TodoContext.Provider value={undefined}>
+                {children}
+            </TodoContext.Provider>
+        )
 
-export default TodoContext;
 
+
+    }
+
+    export default TodoContext;
