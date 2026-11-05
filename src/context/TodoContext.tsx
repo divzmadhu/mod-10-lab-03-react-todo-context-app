@@ -83,20 +83,25 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
     }
 
     //5. Function to clearCompleted , If the user clicks the Clear Completed Button, clearCompleted function should deleted those tasks from the todo list   
-    
-    function clearCompleted(){
-    const updatedTodos = todos.filter(singleTodos => !singleTodos.completed);
-       
+
+    function clearCompleted() {
+        const updatedTodos = todos.filter(singleTodos => !singleTodos.completed);
+
         setTodos(updatedTodos);
     }
 
-    
-            
-        return (
-            <TodoContext.Provider value={undefined}>
-                {children}
-            </TodoContext.Provider>
-        )
-    }
+    return (
+        <TodoContext.Provider value={{
+            todos,
+            addTodo,
+            toggleTodo,
+            deleteTodo,
+            editTodo,
+            clearCompleted
+        }}>
+            {children}
+        </TodoContext.Provider>
+    )
+}
 
-    export default TodoContext;
+export default TodoContext;
