@@ -1,6 +1,6 @@
 // 1. Import Todo type
 import { useContext, useState } from "react";
-import type from { Todo } from "../../types";
+import type { Todo } from "../../types";
 import TodoContext from "../../context/TodoContext";
 
 
