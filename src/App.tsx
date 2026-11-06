@@ -1,10 +1,13 @@
 import TodoInput from "./components/TodoInput/TodoInput";
+import TodoList from "./components/TodoList/TodoList";
+import "./App.css";
 
 export default function App() {
   return (
-    <div>
-      <h1>My Todo App</h1>
+    <div className ="todo-container">
+      <h1>Planora - Simplify Your Day </h1>
       <TodoInput />
+      <TodoList/>
     </div>
   )
 }
