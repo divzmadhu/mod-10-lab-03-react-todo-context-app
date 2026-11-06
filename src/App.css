@@ -4,3 +4,89 @@
   margin: 15px 0;
   border-radius: 8px;
 }
+
+.theme-toggle-button {
+    padding: 10px 16px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    background-color: #555;
+}
+
+/* Light Theme */
+.todo-container.light {
+    background-color: #ffffff;
+    color: #222222;
+}
+
+/* Dark Theme */
+.todo-container.dark {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+/* Light Theme Heading */
+.todo-container.light h1 {
+    color: #222222;
+}
+
+/* Dark Theme Heading */
+.todo-container.dark h1 {
+    color: #ffffff;
+}
+
+/* Light Theme Placeholder */
+.todo-container.light input::placeholder {
+    color: #777777;
+}
+
+/* Dark Theme Placeholder */
+.todo-container.dark input::placeholder {
+    color: #bbbbbb;
+}
+
+/* Light Theme Input */
+.todo-container.light input {
+    background-color: #ffffff;
+    color: #222222;
+    border: 1px solid #cccccc;
+}
+
+/* Dark Theme Input */
+.todo-container.dark input {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #777777;
+}
+
+/* Light Theme Buttons */
+.todo-container.light button {
+    background-color: #eeeeee;
+    color: #222222;
+    border: 1px solid #cccccc;
+}
+
+/* Dark Theme Buttons */
+.todo-container.dark button {
+    background-color: #444444;
+    color: #ffffff;
+    border: 1px solid #666666;
+}
+
+/* Theme Toggle Button - Light Mode */
+.todo-container.light .theme-toggle-button {
+    background-color: #333333;
+    color: white;
+}
+
+/* Theme Toggle Button - Dark Mode */
+.todo-container.dark .theme-toggle-button {
+    background-color: #eeeeee;
+    color: #222222;
+}

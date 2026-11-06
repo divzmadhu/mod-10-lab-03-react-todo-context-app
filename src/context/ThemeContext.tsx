@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 // 1. Define the allowed theme options
 export type ThemeType = "light" | "dark";
@@ -15,8 +15,17 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 // 4. Create the Provider
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
-    // 5. Create theme state
-    const [theme, setTheme] = useState<ThemeType>("light");
+    // 5. Create theme state    
+
+    const [theme, setTheme] = useState<ThemeType>(() => {
+        const savedTheme = localStorage.getItem("theme");
+
+        return savedTheme === "dark" ? "dark" : "light";
+    });
+    
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+    }, [theme]);
 
     // 6. Toggle between light and dark themes
     function toggleTheme() {
