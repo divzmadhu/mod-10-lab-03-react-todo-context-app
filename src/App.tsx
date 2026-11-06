@@ -1,7 +1,10 @@
-export default function App(){
-  return(
+import TodoInput from "./components/TodoInput/TodoInput";
+
+export default function App() {
+  return (
     <div>
-      HelloWorld!
+      <h1>My Todo App</h1>
+      <TodoInput />
     </div>
   )
 }
