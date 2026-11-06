@@ -2,6 +2,7 @@
 
 import { useContext } from "react";
 import TodoContext from "../../context/TodoContext";
+import TodoItem from "../TodoItem/TodoItem";
 
 
 // 2. Create TodoList component
@@ -25,9 +26,10 @@ export default function TodoList() {
             {
                 todos.map((singleTodo) => {
                     return (
-                        <div key={singleTodo.id}>
-                            {singleTodo.text}
-                        </div>
+                        <TodoItem
+                            key={singleTodo.id}
+                            todo={singleTodo}
+                        />
                     );
                 })
 
