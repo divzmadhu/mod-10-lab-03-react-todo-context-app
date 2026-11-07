@@ -90,3 +90,17 @@
     background-color: #eeeeee;
     color: #222222;
 }
+
+
+/* Container holding the buttons */
+.task-actions {
+  display: flex;
+  gap: 8px; /* Adjust spacing between buttons here */
+  align-items: center;
+}
+
+
+/* Add spacing between task action buttons */
+.todo-container button + button {
+  margin-left: 8px; /* Creates minimal, presentable space between adjacent buttons */
+}
