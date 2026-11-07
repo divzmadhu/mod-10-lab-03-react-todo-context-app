@@ -85,3 +85,6 @@ Through this project, I practiced:
 * Managing shared state with React Context API.
 * Implementing cus
 
+## Recent & Upcoming Updates
+* **Task Actions:** Complete button is fully functional. 
+* Implementation for the **Edit (pencil)** and **Delete (basket)** symbols is currently **in progress**.
